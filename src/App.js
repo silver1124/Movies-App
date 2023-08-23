@@ -1,5 +1,6 @@
 import React,{useState, useCallback, useEffect} from 'react';
 import MoviesList from './components/MoviesList';
+import AddMovies from './components/AddMovies';
 import './App.css';
 
 function App() {
@@ -40,6 +41,10 @@ function App() {
     fetchMoviesHandler()
   }, []);
 
+  function addMovieHandler(movie) {
+    console.log(movie);
+  }
+
   const handleCancelRetry = () => {
     if (cancel) {
       clearTimeout(cancel);
@@ -64,6 +69,9 @@ function App() {
 
   return (
     <React.Fragment>
+      <section>
+        <AddMovies onAddMovie={addMovieHandler} />
+      </section>
       <section>
         <button onClick={fetchMoviesHandler}>Fetch Movies</button>
         <button onClick={handleCancelRetry}>Cancel Retry</button>
