@@ -12,6 +12,7 @@ const MovieList = (props) => {
           title={movie.title}
           releaseDate={movie.releaseDate}
           openingText={movie.openingText}
+          onClick={()=>props.onDeleteHandler(movie.id)}
         />
       ))}
     </ul>
